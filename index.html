@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+</head>
+<body>   
+    <div class="container">
+        <div class="mb-600">
+            <h2 class="fadein">下から上</h2>
+            <img class="fadein" src="./image/cat1.jpg" alt="">
+        </div>
+        <div class="mb-600">
+            <h2 class="fadein left">左から右</h2>
+            <img class="fadein left" src="./image/cat3.jpg">
+        </div>
+        <div class="mb-600">
+            <h2 class="fadein right">右から左</h2>
+            <img class="fadein right" src="./image/cat2.png" alt="">
+        </div>
+        <div class="mb-600">
+            <h2 class="fadein top">上から下</h2>
+            <img class="fadein top" src="./image/cat4.jpg">
+        </div>
+    </div>
+    <script>
+      $(function () {
+        $(window).scroll(function () {
+            $('.fadein').each(function () {
+                var targetElement = $(this).offset().top;
+                var scroll = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                if (scroll > targetElement - windowHeight + 150) {
+                    $(this).addClass('scrollin');
+                }
+            });
+        });
+      });
+    </script>
+</body>
+</html>
